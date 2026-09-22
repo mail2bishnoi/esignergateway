@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>eSign Redirect Form</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial,
+          sans-serif;
+        background: #f4f6f8;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        padding: 20px;
+      }
+      .card {
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        padding: 32px 36px;
+        width: 100%;
+        max-width: 420px;
+      }
+      h1 {
+        font-size: 20px;
+        margin: 0 0 4px;
+        color: #1a1a1a;
+      }
+      p.subtitle {
+        margin: 0 0 24px;
+        color: #666;
+        font-size: 13px;
+      }
+      label {
+        display: block;
+        font-size: 13px;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 6px;
+        margin-top: 16px;
+      }
+      input[type="text"],
+      input[type="file"] {
+        width: 100%;
+        padding: 10px 12px;
+        border: 1px solid #d0d5dd;
+        border-radius: 6px;
+        font-size: 14px;
+        background: #fff;
+      }
+      input[type="text"]:focus {
+        outline: none;
+        border-color: #2563eb;
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+      }
+      button {
+        width: 100%;
+        margin-top: 28px;
+        padding: 12px;
+        background: #2563eb;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      button:hover {
+        background: #1d4ed8;
+      }
+      .hint {
+        font-size: 11px;
+        color: #888;
+        margin-top: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h1>eSign Redirect Request</h1>
+      <p class="subtitle">Submits directly to the local eSign API endpoint</p>
+
+      <form
+        action="http://localhost:8080/api/esign/redirect"
+        method="POST"
+        enctype="multipart/form-data"
+      >
+        <label for="aspId">ASP ID</label>
+        <input type="text" id="aspId" name="aspId" required />
+
+        <label for="applicationId">Application ID</label>
+        <input type="text" id="applicationId" name="applicationId" required />
+
+        <label for="version">Version</label>
+        <input type="text" id="version" name="version" required />
+
+        <label for="signerId">Signer ID</label>
+        <input type="text" id="signerId" name="signerId" required />
+
+        <label for="signerId">Encrypted Data</label>
+        <input type="text" id="encryptedData" name="encryptedData" required />
+
+        <label for="signerId">File Type</label>
+        <input type="text" id="fileType" name="fileType" required />
+
+        <label for="documents">Documents</label>
+        <input type="file" id="documents" name="documents" required />
+        <div class="hint">Select the document file to be signed</div>
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>

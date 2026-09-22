@@ -1,0 +1,15 @@
+esign:
+  versions:
+    - version: "2.1"
+      flow: REDIRECT
+      url: https://esign.rajasthan.gov.in/esign/2.1/signdoc/
+    - version: "3.2"
+      flow: UI
+      url: https://example.com/placeholder-v32
+    - version: "PREVIEW"
+      flow: PREVIEW
+      url: /internal/previews                   # our own intermediate page, not merchant-configured
+
+logging:
+  level:
+    in.gov.rajasthan.risl.esignergateway: DEBUG
